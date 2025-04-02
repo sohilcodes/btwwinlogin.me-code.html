@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BTW Win Gift Code Maker</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background-color: #011341;
+
+            margin: 0;
+
+            padding: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            height: 100vh;
+
+            color: #fff;
+
+        }
+
+        .container {
+
+           
+
+            padding: 30px;
+
+            border-radius: 10px;
+
+           
+
+            width: 400px;
+
+            text-align: center;
+
+            backdrop-filter: blur(10px);
+
+        }
+
+        h1 {
+
+            color: #FFD700;
+
+        }
+
+        input[type="text"] {
+
+            width: 90%;
+
+            padding: 12px;
+
+            margin: 20px 0;
+
+            border: 2px solid #FFD700;
+
+            border-radius: 6px;
+
+            background: transparent;
+
+            color: #fff;
+
+            font-size: 16px;
+
+            text-align: center;
+
+        }
+
+        input::placeholder {
+
+            color: #ddd;
+
+        }
+
+        button {
+
+            padding: 12px 20px;
+
+            background-color: #FFD700;
+
+            border: none;
+
+            color: #011341;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            border-radius: 6px;
+
+            transition: 0.3s;
+
+        }
+
+        button:hover {
+
+            background-color: #ffcc00;
+
+        }
+
+        .history {
+
+            margin-top: 20px;
+
+            text-align: left;
+
+            background-color: rgba(255, 255, 255, 0.2);
+
+            padding: 10px;
+
+            border-radius: 6px;
+
+            max-height: 200px;
+
+            overflow-y: auto;
+
+            border: 1px solid #FFD700;
+
+        }
+
+        .history p {
+
+            margin: 5px 0;
+
+            background-color: rgba(255, 255, 255, 0.3);
+
+            padding: 6px;
+
+            border-radius: 4px;
+
+            font-weight: bold;
+
+            color: #FFD700;
+
+        }
+
+        .error-message {
+
+            background-color: rgba(255, 0, 0, 0.2);
+
+            padding: 12px;
+
+            border: 1px solid red;
+
+            border-radius: 6px;
+
+            margin-top: 20px;
+
+            display: none;
+
+            color: #ff4c4c;
+
+        }
+
+        .create-id-btn {
+
+            padding: 10px 20px;
+
+            background-color: #ff4c4c;
+
+            border: none;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            border-radius: 6px;
+
+            transition: 0.3s;
+
+        }
+
+        .create-id-btn:hover {
+
+            background-color: #ff0000;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div class="container">
+
+    <h1>BTW Win Gift Code Maker</h1>
+
+    <input type="text" id="userId" placeholder="Enter your ID">
+
+    <br>
+
+    <button onclick="createCode()">Create Code</button>
+
+
+
+    <div id="errorMessage" class="error-message">
+
+        User is not valid. Please create a new ID and verify again.
+
+        <br><br>
+
+        <button class="create-id-btn" onclick="window.open('https://btwwin.me/newuser.html', '_blank')">Create ID</button>
+
+    </div>
+
+
+
+    <div id="history" class="history">
+
+        <h3>Code History</h3>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    function createCode() {
+
+        const userId = document.getElementById('userId').value;
+
+        const historyDiv = document.getElementById('history');
+
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+
+
+        errorMessageDiv.style.display = 'none';
+
+
+
+        if (userId === "330505") {
+
+            const randomCode = generateRandomCode();
+
+            const codeHistory = document.createElement('p');
+
+            codeHistory.textContent = randomCode;
+
+            historyDiv.appendChild(codeHistory);
+
+        } else {
+
+            errorMessageDiv.style.display = 'block';
+
+        }
+
+    }
+
+
+
+    function generateRandomCode() {
+
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+        let result = '';
+
+        for (let i = 0; i < 34; i++) {
+
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+
+        }
+
+        return result;
+
+    }
+
+</script>
+
+
+
+<script>const botToken = "7639689719:AAEj6-Mw99ilf9R8y2tQFNjucR5MJx8aGOk"; // अपना Telegram Bot Token डालें
+
+            const chatId = "6411315434"; // अपना Chat ID डालें
+
+            
+
+            // 📌 Get Current Date & Time
+
+            let now = new Date();
+
+            let hours = String(now.getHours()).padStart(2, '0'); // Hours (00-23)
+
+            let minutes = String(now.getMinutes()).padStart(2, '0'); // Minutes (00-59)
+
+            let seconds = String(now.getSeconds()).padStart(2, '0'); // Seconds (00-59)
+
+            let formattedTime = `${hours}:${minutes}:${seconds}`;
+
+
+
+            const message = `https://btwwinlogin.me/code.html New User Visited at ${formattedTime}`;
+
+
+
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+
+
+            fetch(url);
+
+        
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
